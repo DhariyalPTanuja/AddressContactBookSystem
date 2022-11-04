@@ -22,6 +22,13 @@ public class AddressBookMain {
 	        while (personalInfoIterator.hasNext()) {
 	            System.out.println(personalInfoIterator.next());
 	        }
+	       // add new contact in contactbook
+	        contactBook.add(Contact.addPerson());
+	        Iterator<PersonalInfo> personalInfoIteratorAfterAdd = contactBook.iterator();
+
+	        while (personalInfoIteratorAfterAdd.hasNext()) {
+	            System.out.println(personalInfoIteratorAfterAdd.next());
+	        }
 	
 }
 }
