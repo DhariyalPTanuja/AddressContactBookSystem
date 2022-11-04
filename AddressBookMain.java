@@ -22,13 +22,34 @@ public class AddressBookMain {
 	        while (personalInfoIterator.hasNext()) {
 	            System.out.println(personalInfoIterator.next());
 	        }
-	       // add new contact in contactbook
-	        contactBook.add(Contact.addPerson());
-	        Iterator<PersonalInfo> personalInfoIteratorAfterAdd = contactBook.iterator();
+		int ch;
+		do {
+			System.out.println("1.Add a new contact to your address book.");
+			System.out.println("2.Edit a contact from your address book.");
+			System.out.println("3.Print a contact from your address book.");
+			System.out.println("Enter your Choice : ");
+			ch = scanI.nextInt();
 
-	        while (personalInfoIteratorAfterAdd.hasNext()) {
-	            System.out.println(personalInfoIteratorAfterAdd.next());
-	        }
-	
-}
+			switch (ch) {
+			case 1:
+				contactBook.add(Contact.addPerson());
+				break;
+			case 2:
+				contactBook.add(Contact.editContact());
+				break;
+
+			case 3:
+				System.out.println(".............");
+				Iterator<PersonalInfo> personalInfoIteratorDisplay = contactBook.iterator();
+
+				while (personalInfoIteratorDisplay.hasNext()) {
+					System.out.println(personalInfoIteratorDisplay.next());
+				}
+
+				break;
+			}
+
+		} while (ch != 0);
+	}
+
 }

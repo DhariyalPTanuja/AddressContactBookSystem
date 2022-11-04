@@ -33,5 +33,58 @@ public class Contact {
 		PersonalInfo p = new PersonalInfo(fname, lname, phoneNumber, email, city, state, zipCode);
 		return p;
 	}
+	public static PersonalInfo  editContact() {
+		List<PersonalInfo> contactList = new ArrayList<PersonalInfo>();
+		Scanner scanobj = new Scanner(System.in);
+		boolean found = false;
+		System.out.println("enter the first and last name to update person detail:");
+		fname = scanobj.next();
+		lname = scanobj.next();
+		System.out.println("-------------");
+		ListIterator<PersonalInfo> list = contactList.listIterator();
+		while(list.hasNext()) {
+		PersonalInfo data = list.next();
+		//if((data.getfName()== fname) && (data.getlName()==lname)) {
+		if((fname.equalsIgnoreCase(data.getfName())) && (lname.equalsIgnoreCase(data.getlName()))) {
+			System.out.println("Enter choice to Update\s" + " Enter 1 for Edit Address "
+					+ " Enter 2 for Edit PhoneNumber " + " Enter 3 for Edit Email addres ");
+			int choice = scanobj.nextInt();
+
+			switch (choice) {
+			case 1:
+				System.out.println("Enter New City:");
+				city = scanobj.next();
+				System.out.println("Enter New State:");
+				state = scanobj.next();
+				System.out.println("Enter New Zip Code:");
+				zipCode=scanobj.nextInt();
+				list.set(new PersonalInfo(state, city,zipCode));
+				break;
+			case 2:
+				System.out.println("Enter New Phone Number:");
+				phoneNumber=scanobj.nextLong();
+				list.set(new PersonalInfo(phoneNumber));
+				break;
+
+			case 3:
+				System.out.println("Enter New Email Address:");
+				email=scanobj.next();
+				list.set(new PersonalInfo(email));
+				break;
+			}
+			
+			found = true;
+		}
+		}
+		if(!found)
+			System.out.println("Record Not Found!!!");
+		else
+			System.out.println("Updated Succesfully!!!");
+		System.out.println("...............");
+		
+		return new PersonalInfo(fname, lname, phoneNumber, email, city, state, zipCode);
+		
+		
+	}
 	
 }
