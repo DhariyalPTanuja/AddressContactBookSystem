@@ -27,6 +27,7 @@ public class AddressBookMain {
 			System.out.println("1.Add a new contact to your address book.");
 			System.out.println("2.Edit a contact from your address book.");
 			System.out.println("3.Print a contact from your address book.");
+			System.out.println("4.Delete a contact from your address book.");
 			System.out.println("Enter your Choice : ");
 			ch = scanI.nextInt();
 
@@ -35,7 +36,7 @@ public class AddressBookMain {
 				contactBook.add(Contact.addPerson());
 				break;
 			case 2:
-				contactBook.add(Contact.editContact());
+				Contact.editContact();
 				break;
 
 			case 3:
@@ -46,6 +47,9 @@ public class AddressBookMain {
 					System.out.println(personalInfoIteratorDisplay.next());
 				}
 
+				break;
+			case 4:
+				Contact.deleteContact();
 				break;
 			}
 
